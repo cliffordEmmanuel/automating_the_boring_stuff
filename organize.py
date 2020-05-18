@@ -1,6 +1,7 @@
 # create a dictionary to categorize all the file types
 import os
 from pathlib import Path
+import json
 
 
 SUBDIRECTORIES = {
@@ -32,7 +33,23 @@ def organizeDirectory():
             directoryPath.mkdir()
         filePath.rename(directoryPath.joinpath(filePath))
 
-organizeDirectory()
+
+def addFileType(file_type, file_extension):
+    """this function would add more file types to the category incase it's incomplete."""
+    if file_type not in SUBDIRECTORIES.keys():
+        SUBDIRECTORIES[file_type.upper()] = [file_extension]
+    else :
+        SUBDIRECTORIES[file_type.upper()].append(file_extension)
+
+def showDefaultDirectories():
+    """this returns the default directories in json format"""
+    return json.dumps(SUBDIRECTORIES)
+
+
+if __name__ == "__main__":
+    print(showDefaultDirectories())
+    addFileType('datasets', '.csv')
+    print(showDefaultDirectories())
 
     
 
