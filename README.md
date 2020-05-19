@@ -5,3 +5,5 @@
 This script is aimed quickly rearranging clumsy directory by putting the files into specific categories ie Documents, audio, images and videos. 
 I'll be updating it when i get inspired
 
+### Contact_extrator.py
+This script extract phone numbers and email addresses from a given string and stores them in a text file.
